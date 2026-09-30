@@ -15,7 +15,7 @@ class WordCatalogImpl(val wordSearcher: WordSearcher): WordCatalog {
         return wordSearcher.findWordByEnglish(text, wordList)
     }
 
-    override fun getAll(): MutableList<Word> {
+    override fun getAll(): List<Word> {
         return wordList
     }
 }

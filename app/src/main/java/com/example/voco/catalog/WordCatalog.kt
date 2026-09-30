@@ -6,5 +6,5 @@ import com.example.voco.model.Word
 interface WordCatalog {
     fun add(word: Word)
     fun find(text: String): SearchResult
-    fun getAll(): MutableList<Word>
+    fun getAll(): List<Word>
 }
