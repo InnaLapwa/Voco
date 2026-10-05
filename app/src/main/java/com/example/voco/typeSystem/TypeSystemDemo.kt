@@ -2,8 +2,7 @@ package com.example.voco.typeSystem
 
 import android.util.Log
 import com.example.voco.model.Word
-
-val vocoLogger = VocoLogger
+import com.example.voco.typeSystem.VocoLogger.log
 
 object VocoLogger {
     fun log(message: String) {
@@ -13,20 +12,17 @@ object VocoLogger {
 
 fun printInfo(value: Any) {
     val message = "print info: $value"
-    vocoLogger.log(message)
+    log(message)
 }
 
 fun findWord(value: Word?) {
-    val m = when (value) {
-        null -> "null"
-        else -> value
-    }
+    val m = if (value == null) "null" else value
 
     val message = "find word: $m"
-    vocoLogger.log(message)
+    log(message)
 }
 
-fun wordNotFound(value: Any): Nothing {
-    vocoLogger.log("word not found")
+fun wordNotFound(value: Word): Nothing {
+    log("word not found")
     error(value)
 }
