@@ -14,7 +14,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.voco.catalog.WordCatalogImpl
 import com.example.voco.data.VocoData
+import com.example.voco.model.Word
+import com.example.voco.model.WordCategory
 import com.example.voco.search.EnglishWordSearcher
+import com.example.voco.typeSystem.findWord
+import com.example.voco.typeSystem.printInfo
+import com.example.voco.typeSystem.wordNotFound
 import com.example.voco.ui.theme.VocoTheme
 
 class MainActivity : ComponentActivity() {
@@ -41,6 +46,17 @@ class MainActivity : ComponentActivity() {
         Log.d("test", wordCatalog.getAll().toString())
         Log.d("test", wordCatalog.find("Two").toString())
         Log.d("test", wordCatalog.find("Nine").toString())
+
+        val testWord = Word("One", "Один", "One example", WordCategory.NUMBERS)
+
+        printInfo("Hello")
+        printInfo(42)
+        printInfo(testWord)
+
+        findWord(testWord)
+        findWord(null)
+
+        wordNotFound(testWord)
     }
 }
 
