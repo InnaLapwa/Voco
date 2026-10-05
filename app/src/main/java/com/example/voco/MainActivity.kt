@@ -16,10 +16,10 @@ import com.example.voco.catalog.WordCatalogImpl
 import com.example.voco.data.VocoData
 import com.example.voco.model.Word
 import com.example.voco.model.WordCategory
+import com.example.voco.practice.createDemoSearcher
 import com.example.voco.search.EnglishWordSearcher
 import com.example.voco.typeSystem.findWord
 import com.example.voco.typeSystem.printInfo
-import com.example.voco.typeSystem.wordNotFound
 import com.example.voco.ui.theme.VocoTheme
 
 class MainActivity : ComponentActivity() {
@@ -56,7 +56,12 @@ class MainActivity : ComponentActivity() {
         findWord(testWord)
         findWord(null)
 
-        wordNotFound(testWord)
+        //wordNotFound(testWord)
+
+
+        val searcher = createDemoSearcher()
+        val result = searcher.findWordByEnglish("one", wordCatalog.getAll())
+        Log.d("test", result.toString())
     }
 }
 
